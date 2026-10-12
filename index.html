@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Googlee Remote</title>
+<style>
+body{margin:0;background:#0b1020;color:#fff;font-family:Arial,sans-serif;padding:24px}
+.card{max-width:420px;margin:45px auto;padding:24px;background:#17213a;border-radius:18px;text-align:center}
+h1{color:#8db4ff}
+input,button{box-sizing:border-box;width:100%;padding:14px;margin-top:12px;border-radius:10px;font-size:16px}
+input{background:#0b1020;color:white;border:1px solid #52658b}
+button{background:#8db4ff;color:#10182b;border:0;font-weight:bold}
+#message{color:#c4d1e8}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Googlee Remote</h1>
+<p>Connect to your own Android phone</p>
+<input id="code" placeholder="Enter pairing code">
+<button onclick="connect()">Connect</button>
+<p id="message">Waiting for connection</p>
+</div>
+<script>
+function connect(){
+ const code=document.getElementById('code').value.trim();
+ const message=document.getElementById('message');
+ message.textContent=code
+ ? 'Demo only: remote connection is not set up yet.'
+ : 'Please enter a pairing code.';
+}
+</script>
+</body>
+</html>
