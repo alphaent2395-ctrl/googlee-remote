@@ -2,184 +2,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1120">
-  <title>Googlee Remote</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 24px 16px;
-      font-family: Arial, sans-serif;
-      background: #0b1120;
-      color: #f8fafc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .app {
-      width: 100%;
-      max-width: 440px;
-    }
-    .brand {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-    .logo {
-      width: 66px;
-      height: 66px;
-      margin: 0 auto 14px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #38bdf8, #2563eb);
-      display: grid;
-      place-items: center;
-      font-size: 30px;
-      font-weight: bold;
-      box-shadow: 0 10px 35px #2563eb40;
-    }
-    h1 {
-      margin: 0;
-      font-size: 29px;
-      letter-spacing: -0.8px;
-    }
-    .subtitle {
-      margin-top: 9px;
-      color: #94a3b8;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    .panel {
-      padding: 24px;
-      border: 1px solid #263449;
-      border-radius: 22px;
-      background: #131d30;
-      box-shadow: 0 20px 60px #00000030;
-    }
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: #cbd5e1;
-      font-size: 13px;
-      margin-bottom: 24px;
-    }
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #f59e0b;
-    }
-    label {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    input {
-      width: 100%;
-      padding: 15px;
-      border: 1px solid #334155;
-      border-radius: 12px;
-      outline: none;
-      background: #0b1120;
-      color: white;
-      font-size: 16px;
-    }
-    input:focus { border-color: #38bdf8; }
-    button {
-      width: 100%;
-      margin-top: 14px;
-      padding: 15px;
-      border: 0;
-      border-radius: 12px;
-      background: #2563eb;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:active { transform: scale(0.99); }
-    #message {
-      min-height: 40px;
-      margin: 18px 0 0;
-      color: #93c5fd;
-      font-size: 13px;
-      line-height: 1.6;
-      text-align: center;
-    }
-    .note {
-      margin-top: 18px;
-      color: #64748b;
-      font-size: 12px;
-      line-height: 1.7;
-      text-align: center;
-    }
-    footer {
-      margin-top: 22px;
-      color: #64748b;
-      font-size: 12px;
-      text-align: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#04132f">
+<title>Googlee Remote</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#f4f8ff;background:radial-gradient(ellipse at 20% 65%,#073b91 0,transparent 36%),linear-gradient(135deg,#020b20,#061a3d 65%,#020b20);min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px 6%;border-bottom:1px solid #173661;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-size:25px;font-weight:bold}
+.logo{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#05c8ff,#064cff);font-size:30px;font-weight:bold}
+.blue{color:#08c5ff}
+.status{color:#a9c8f6;font-size:14px}
+main{max-width:1200px;margin:auto;padding:65px 6% 35px;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+h1{font-size:clamp(38px,5vw,64px);margin:15px 0;letter-spacing:-2px}
+.tagline{font-size:22px;color:#a8d3ff;font-weight:bold}
+.description{font-size:17px;line-height:1.8;color:#d2e2fa}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:28px}
+.feature{padding:18px;border:1px solid #183d71;border-radius:16px;background:#0a2043aa}
+.feature strong{display:block;margin-bottom:7px;color:#43caff}
+.feature span{font-size:13px;color:#b8cce9}
+.panel{padding:30px;border:1px solid #174b87;border-radius:24px;background:linear-gradient(145deg,#0a2046eF,#06152ff2);box-shadow:0 20px 65px #0005}
+.panel h2{font-size:27px;margin:0 0 12px}
+.panel p{color:#a9c8f6;line-height:1.6}
+label{display:block;margin:28px 0 10px;font-weight:bold}
+input{width:100%;padding:17px;border-radius:13px;border:1px solid #315a91;background:#04132d;color:white;font-size:16px;outline:none}
+input:focus{border-color:#08c5ff;box-shadow:0 0 0 3px #08c5ff20}
+button{width:100%;margin-top:17px;padding:17px;border:0;border-radius:14px;background:linear-gradient(100deg,#09baff,#1767ff);color:white;font-size:17px;font-weight:bold;cursor:pointer}
+button:active{transform:scale(.99)}
+.notice{margin-top:22px;padding:17px;border:1px solid #19457b;border-radius:15px;background:#081b39}
+.notice strong{color:#4ceca0}
+.notice p{margin:7px 0 0;font-size:14px}
+footer{margin:10px 6% 30px;padding:22px;border:1px solid #173b6d;border-radius:18px;display:flex;justify-content:space-around;gap:18px;flex-wrap:wrap;color:#bad0ef;font-size:14px}
+footer span{padding:5px}
+@media(max-width:760px){header{padding:16px 5%}.brand{font-size:21px}main{grid-template-columns:1fr;padding:38px 5%;gap:28px}.panel{padding:23px}h1{font-size:43px}.tagline{font-size:19px}.features{gap:10px}footer{margin:0 5% 22px;justify-content:flex-start}}
+</style>
 </head>
 <body>
-  <main class="app">
-    <header class="brand">
-      <div class="logo">G</div>
-      <h1>Googlee Remote</h1>
-      <div class="subtitle">
-        Your devices. One simple connection.
-      </div>
-    </header>
-
-    <section class="panel">
-      <div class="status">
-        <span class="dot"></span>
-        <span id="status">Not connected</span>
-      </div>
-
-      <label for="pairingCode">Pairing code</label>
-      <input
-        id="pairingCode"
-        type="text"
-        placeholder="Enter your pairing code"
-        autocomplete="off"
-      >
-
-      <button onclick="connectDevice()">Connect device</button>
-
-      <p id="message">
-        Enter a code to begin.
-      </p>
-    </section>
-
-    <div class="note">
-      Only connect to devices you own or have permission to access.
-      A pairing code alone does not establish a remote connection.
+<header>
+  <div class="brand"><div class="logo">G</div><div>Googlee <span class="blue">Remote</span></div></div>
+  <div class="status">● Not connected</div>
+</header>
+<main>
+  <section>
+    <div class="logo" style="width:76px;height:76px;font-size:48px">G</div>
+    <h1>Googlee <span class="blue">Remote</span></h1>
+    <div class="tagline">Control. Access. Stay Connected.</div>
+    <p class="description">A simple, modern way to connect your devices. Designed for a smooth and easy experience on mobile and desktop.</p>
+    <div class="features">
+      <div class="feature"><strong>⚡ Fast</strong><span>Simple connection setup</span></div>
+      <div class="feature"><strong>◇ Privacy</strong><span>Connection with permission</span></div>
+      <div class="feature"><strong>▣ Mobile</strong><span>Phone-friendly design</span></div>
+      <div class="feature"><strong>◎ Anywhere</strong><span>Designed for your devices</span></div>
     </div>
-
-    <footer>Googlee Remote · Personal project</footer>
-  </main>
-
-  <script>
-    function connectDevice() {
-      const code = document
-        .getElementById("pairingCode")
-        .value.trim();
-      const message = document.getElementById("message");
-      const status = document.getElementById("status");
-
-      if (!code) {
-        message.textContent = "Please enter a pairing code.";
-        return;
-      }
-
-      status.textContent = "Connection not configured";
-      message.textContent =
-        "The website design is ready, but a secure remote connection service and Android app are still needed.";
-    }
-  </script>
+  </section>
+  <section class="panel">
+    <h2>Connect Your Device</h2>
+    <p>Enter a pairing code from your companion app to get started.</p>
+    <label for="pair">🔗 Pairing Code</label>
+    <input id="pair" type="text" placeholder="Enter your pairing code" maxlength="30" autocomplete="off">
+    <button onclick="connectDevice()">↗ &nbsp; Connect Device &nbsp; ›</button>
+    <div class="notice">
+      <strong id="state">● Ready to connect</strong>
+      <p id="message">Enter a code to begin.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  <span>◇ &nbsp; Privacy matters</span>
+  <span>▣ &nbsp; Mobile friendly</span>
+  <span>⚡ &nbsp; Simple and modern</span>
+</footer>
+<script>
+function connectDevice(){
+ const code=document.getElementById('pair').value.trim();
+ const state=document.getElementById('state');
+ const message=document.getElementById('message');
+ if(!code){
+   state.textContent='● Pairing code required';
+   state.style.color='#ffcc70';
+   message.textContent='Please enter a pairing code.';
+   return;
+ }
+ state.textContent='● Connection not configured';
+ state.style.color='#ffcc70';
+ message.textContent='The website design is ready, but a real device connection needs a companion app and secure connection service.';
+}
+</script>
 </body>
 </html>
