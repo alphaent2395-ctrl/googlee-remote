@@ -4,68 +4,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1120">
   <title>Googlee Remote</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #101827;
-      color: white;
-      display: flex;
       min-height: 100vh;
+      padding: 24px 16px;
+      font-family: Arial, sans-serif;
+      background: #0b1120;
+      color: #f8fafc;
+      display: flex;
       align-items: center;
       justify-content: center;
     }
-    .card {
-      width: 85%;
-      max-width: 400px;
-      padding: 25px;
-      background: #1e293b;
-      border-radius: 18px;
-      text-align: center;
-    }
-    h1 { color: #60a5fa; }
-    p { color: #cbd5e1; }
-    input, button {
-      box-sizing: border-box;
+    .app {
       width: 100%;
-      padding: 14px;
-      margin-top: 12px;
-      border-radius: 10px;
-      font-size: 16px;
+      max-width: 440px;
     }
-    input {
-      border: 1px solid #64748b;
-      background: #0f172a;
-      color: white;
+    .brand {
+      text-align: center;
+      margin-bottom: 28px;
     }
-    button {
-      border: 0;
-      background: #3b82f6;
-      color: white;
+    .logo {
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 14px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      font-weight: bold;
+      box-shadow: 0 10px 35px #2563eb40;
+    }
+    h1 {
+      margin: 0;
+      font-size: 29px;
+      letter-spacing: -0.8px;
+    }
+    .subtitle {
+      margin-top: 9px;
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .panel {
+      padding: 24px;
+      border: 1px solid #263449;
+      border-radius: 22px;
+      background: #131d30;
+      box-shadow: 0 20px 60px #00000030;
+    }
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #cbd5e1;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #f59e0b;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 14px;
       font-weight: bold;
     }
-    #status { margin-top: 18px; }
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      outline: none;
+      background: #0b1120;
+      color: white;
+      font-size: 16px;
+    }
+    input:focus { border-color: #38bdf8; }
+    button {
+      width: 100%;
+      margin-top: 14px;
+      padding: 15px;
+      border: 0;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:active { transform: scale(0.99); }
+    #message {
+      min-height: 40px;
+      margin: 18px 0 0;
+      color: #93c5fd;
+      font-size: 13px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .note {
+      margin-top: 18px;
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.7;
+      text-align: center;
+    }
+    footer {
+      margin-top: 22px;
+      color: #64748b;
+      font-size: 12px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Googlee Remote</h1>
-    <p>Connect to your own Android phone</p>
-    <input id="code" placeholder="Enter pairing code">
-    <button onclick="connect()">Connect</button>
-    <p id="status">Waiting for connection.</p>
+  <main class="app">
+    <header class="brand">
+      <div class="logo">G</div>
+      <h1>Googlee Remote</h1>
+      <div class="subtitle">
+        Your devices. One simple connection.
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="status">
+        <span class="dot"></span>
+        <span id="status">Not connected</span>
+      </div>
+
+      <label for="pairingCode">Pairing code</label>
+      <input
+        id="pairingCode"
+        type="text"
+        placeholder="Enter your pairing code"
+        autocomplete="off"
+      >
+
+      <button onclick="connectDevice()">Connect device</button>
+
+      <p id="message">
+        Enter a code to begin.
+      </p>
+    </section>
+
+    <div class="note">
+      Only connect to devices you own or have permission to access.
+      A pairing code alone does not establish a remote connection.
+    </div>
+
+    <footer>Googlee Remote · Personal project</footer>
   </main>
+
   <script>
-    function connect() {
-      const code = document.getElementById("code").value.trim();
+    function connectDevice() {
+      const code = document
+        .getElementById("pairingCode")
+        .value.trim();
+      const message = document.getElementById("message");
       const status = document.getElementById("status");
+
       if (!code) {
-        status.textContent = "Please enter a pairing code.";
+        message.textContent = "Please enter a pairing code.";
         return;
       }
-      status.textContent =
-        "Code entered. Remote connection is not configured yet.";
+
+      status.textContent = "Connection not configured";
+      message.textContent =
+        "The website design is ready, but a secure remote connection service and Android app are still needed.";
     }
   </script>
 </body>
