@@ -107,5 +107,66 @@ function connectDevice(){
   const auth = getAuth(app);
   console.log("Googlee Remote Firebase Auth ready");
 </script>
+<div style="margin-top:20px;padding:20px;background:#0b1c38;border-radius:16px;color:white">
+  <h2>Googlee Remote Account</h2>
+  <input id="email" type="email" placeholder="Email address"
+    style="width:100%;padding:14px;box-sizing:border-box;margin:8px 0">
+  <input id="password" type="password" placeholder="Password (6+ characters)"
+    style="width:100%;padding:14px;box-sizing:border-box;margin:8px 0">
+  <button onclick="registerUser()" style="padding:12px;margin:5px">
+    Create Account
+  </button>
+  <button onclick="loginUser()" style="padding:12px;margin:5px">
+    Sign In
+  </button>
+  <p id="authMessage">Create an account or sign in.</p>
+</div>
+
+<script type="module">
+  import { initializeApp, getApp, getApps } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+  import {
+    getAuth, createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
+  } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDGrZ8i_j5yYEff0xAofo0qvM3Ck2zuQ0A",
+    authDomain: "remote-1e05a.firebaseapp.com",
+    databaseURL: "https://remote-1e05a-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "remote-1e05a",
+    storageBucket: "remote-1e05a.firebasestorage.app",
+    messagingSenderId: "987849938863",
+    appId: "1:987849938863:web:568a7eeb88b8fbac3c415a"
+  };
+
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.registerUser = async function () {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const msg = document.getElementById("authMessage");
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      msg.textContent = "Account created successfully!";
+    } catch (error) {
+      msg.textContent = "Error: " + error.message;
+    }
+  };
+
+  window.loginUser = async function () {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const msg = document.getElementById("authMessage");
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      msg.textContent = "Signed in successfully!";
+    } catch (error) {
+      msg.textContent = "Error: " + error.message;
+    }
+  };
+</script>
 </body>
 </html>
