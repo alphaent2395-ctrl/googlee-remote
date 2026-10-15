@@ -89,6 +89,24 @@ function connectDevice(){
  message.textContent='The website design is ready, but a real device connection needs a companion app and secure connection service.';
 }
 </script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDGrZ8i_j5yYEff0xAofo0qvM3Ck2zuQ0A",
+    authDomain: "remote-1e05a.firebaseapp.com",
+    databaseURL: "https://remote-1e05a-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "remote-1e05a",
+    storageBucket: "remote-1e05a.firebasestorage.app",
+    messagingSenderId: "987849938863",
+    appId: "1:987849938863:web:568a7eeb88b8fbac3c415a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  console.log("Googlee Remote Firebase Auth ready");
+</script>
 </body>
 </html>
 <!-- Googlee Remote: Firebase connection setup will go here -->
