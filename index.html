@@ -167,16 +167,31 @@ function connectDevice(){
       msg.textContent = "Error: " + error.message;
     }
   };
-</script>
-</body>
-function createPairingCode() {
+
+const pairingBox = document.createElement("div");
+pairingBox.style.cssText =
+  "padding:20px;text-align:center;color:white;background:#10264a;border-radius:16px;margin:20px;";
+
+pairingBox.innerHTML = `
+  <h2>Googlee Remote</h2>
+  <button id="makeCode"
+    style="padding:14px 24px;border:0;border-radius:10px;
+    background:#1677ff;color:white;font-size:18px;">
+    Generate Pairing Code
+  </button>
+  <h2 id="pairCode" style="letter-spacing:5px"></h2>
+`;
+
+document.body.appendChild(pairingBox);
+
+document.getElementById("makeCode").onclick = function () {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let code = "";
-
   for (let i = 0; i < 6; i++) {
     code += chars[Math.floor(Math.random() * chars.length)];
   }
-
-  return code;
-}
+  document.getElementById("pairCode").textContent = code;
+};
+</script>
+</body>
 </html>
