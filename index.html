@@ -182,6 +182,43 @@ pairingBox.innerHTML = `
   <h2 id="pairCode" style="letter-spacing:5px"></h2>
 `;
 
+document.body.appendChild(pairingBox);
+
+document.getElementById("makeCode").onclick = function () {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let code = "";
+
+  for (let i = 0; i < 6; i++) {
+    code += chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  document.getElementById("pairCode").textContent = code;
+};
+
+const permanentId = getPermanentDeviceId();
+
+const idDisplay = document.createElement("div");
+idDisplay.style.cssText =
+  "margin:20px;padding:18px;background:#10264a;color:white;text-align:center;border-radius:14px;";
+
+idDisplay.innerHTML = `
+  <h3>Your Permanent Device ID</h3>
+  <h2 id="permanentIdValue"></h2>
+  <button id="copyPermanentId">Copy ID</button>
+`;
+
+document.body.appendChild(idDisplay);
+
+document.getElementById("permanentIdValue").textContent = permanentId;
+
+document.getElementById("copyPermanentId").onclick = async function () {
+  try {
+    await navigator.clipboard.writeText(permanentId);
+    this.textContent = "Copied!";
+  } catch {
+    prompt("Copy your Device ID:", permanentId);
+  }
+};
 
 function getPermanentDeviceId() {
   const key = "googlee_remote_device_id";
