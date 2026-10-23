@@ -105,6 +105,14 @@ function connectDevice(){
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+import {
+  getDatabase,
+  ref,
+  set,
+  get
+} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-database.js";
+
+const database = getDatabase(app);
   console.log("Googlee Remote Firebase Auth ready");
 </script>
 <div style="margin-top:20px;padding:20px;background:#0b1c38;border-radius:16px;color:white">
