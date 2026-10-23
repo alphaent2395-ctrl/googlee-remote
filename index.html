@@ -245,6 +245,16 @@ function getPermanentDeviceId() {
 
   return id;
 }
+import {
+  getDatabase,
+  ref,
+  set,
+  get
+} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-database.js";
+
+const database = getDatabase(app);
+
+console.log("Googlee Remote database ready");
 </script>
 </body>
 </html>
