@@ -192,15 +192,42 @@ pairingBox.innerHTML = `
 
 document.body.appendChild(pairingBox);
 
-document.getElementById("makeCode").onclick = function () {
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let code = "";
+document.getElementById("makeCode").onclick = async function () {
+  const user = auth.currentUser;
 
-  for (let i = 0; i < 6; i++) {
-    code += chars[Math.floor(Math.random() * chars.length)];
+  if (!user) {
+    alert("Please sign in first");
+    return;
   }
 
-  document.getElementById("pairCode").textContent = code;
+  let code = localStorage.getItem("googlee_active_code");
+  let expiry = Number(localStorage.getItem("googlee_code_expiry"));
+
+  if (!code || Date.now() > expiry) {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    code = "";
+
+    for (let i = 0; i < 6; i++) {
+      code += chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    expiry = Date.now() + 10 * 60 * 1000;
+
+    localStorage.setItem("googlee_active_code", code);
+    localStorage.setItem("googlee_code_expiry", expiry);
+  }
+
+  try {
+    await set(ref(database, "pairingCodes/" + code), {
+      hostUid: user.uid,
+      createdAt: Date.now(),
+      expiresAt: expiry
+    });
+
+    document.getElementById("pairCode").textContent = code;
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
 };
 
 const permanentId = getPermanentDeviceId();
