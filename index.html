@@ -308,7 +308,17 @@ window.verifyPairingCode = async function () {
       message.textContent = "Please generate a new code.";
       return;
     }
+    const sessionRef = ref(
+      database,
+      "pairingCodes/" + code + "/sessions/" + auth.currentUser.uid
+    );
 
+    await set(sessionRef, {
+      hostUid: data.hostUid,
+      guestUid: auth.currentUser.uid,
+      createdAt: Date.now(),
+      status: "requesting"
+    });
     state.textContent = "Code verified";
     message.textContent = "Pairing code is valid. Device connection is not active yet.";
   } catch (error) {
