@@ -74,16 +74,13 @@ footer span{padding:5px}
   <span>⚡ &nbsp; Simple and modern</span>
 </footer>
 <script>
-function connectDevice(){
- const code=document.getElementById('pair').value.trim();
- const state=document.getElementById('state');
- const message=document.getElementById('message');
- if(!code){
-   state.textContent='● Pairing code required';
-   state.style.color='#ffcc70';
-   message.textContent='Please enter a pairing code.';
-   return;
- }
+function connectDevice() {
+  if (window.verifyPairingCode) {
+    window.verifyPairingCode();
+  } else {
+    alert("Please wait and try again.");
+  }
+}
  state.textContent='● Connection not configured';
  state.style.color='#ffcc70';
  message.textContent='The website design is ready, but a real device connection needs a companion app and secure connection service.';
