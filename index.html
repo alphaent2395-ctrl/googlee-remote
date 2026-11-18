@@ -78,13 +78,12 @@ function connectDevice() {
   if (window.verifyPairingCode) {
     window.verifyPairingCode();
   } else {
-    alert("Please wait and try again.");
+    alert("Pairing verification is not ready.");
   }
 }
  state.textContent='● Connection not configured';
- state.style.color='#ffcc70';
- message.textContent='The website design is ready, but a real device connection needs a companion app and secure connection service.';
-}
+state.style.color='#ffcc70';
+message.textContent='The website design is ready, but a real device connection needs a companion app and secure connection service.';
 </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
