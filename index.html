@@ -277,7 +277,46 @@ import {
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-database.js";
 
 const database = getDatabase(app);
+window.verifyPairingCode = async function () {
+  const code = document.getElementById("pair").value.trim().toUpperCase();
+  const state = document.getElementById("state");
+  const message = document.getElementById("message");
 
+  if (!auth.currentUser) {
+    state.textContent = "Sign in required";
+    message.textContent = "Please sign in first.";
+    return;
+  }
+
+  if (!code) {
+    message.textContent = "Enter a pairing code.";
+    return;
+  }
+
+  try {
+    const snapshot = await get(ref(database, "pairingCodes/" + code));
+
+    if (!snapshot.exists()) {
+      state.textContent = "Invalid code";
+      message.textContent = "Pairing code not found.";
+      return;
+    }
+
+    const data = snapshot.val();
+
+    if (Date.now() > data.expiresAt) {
+      state.textContent = "Code expired";
+      message.textContent = "Please generate a new code.";
+      return;
+    }
+
+    state.textContent = "Code verified";
+    message.textContent = "Pairing code is valid. Device connection is not active yet.";
+  } catch (error) {
+    state.textContent = "Error";
+    message.textContent = error.message;
+  }
+};
 console.log("Googlee Remote database ready");
 </script>
 </body>
