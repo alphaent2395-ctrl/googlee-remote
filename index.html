@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,101 +5,376 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#04132f">
 <title>Googlee Remote</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#f4f8ff;background:radial-gradient(ellipse at 20% 65%,#073b91 0,transparent 36%),linear-gradient(135deg,#020b20,#061a3d 65%,#020b20);min-height:100vh}
-header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px 6%;border-bottom:1px solid #173661;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px;font-size:25px;font-weight:bold}
-.logo{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#05c8ff,#064cff);font-size:30px;font-weight:bold}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#f4f8ff;
+  background:
+    radial-gradient(ellipse at 20% 65%,#073b91 0,transparent 36%),
+    linear-gradient(135deg,#020b20,#061a3d 65%,#020b20);
+  min-height:100vh
+}
+
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:20px 6%;
+  border-bottom:1px solid #173661;
+  flex-wrap:wrap
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:25px;
+  font-weight:bold
+}
+
+.logo{
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#05c8ff,#064cff);
+  font-size:30px;
+  font-weight:bold
+}
+
 .blue{color:#08c5ff}
-.status{color:#a9c8f6;font-size:14px}
-main{max-width:1200px;margin:auto;padding:65px 6% 35px;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
-h1{font-size:clamp(38px,5vw,64px);margin:15px 0;letter-spacing:-2px}
-.tagline{font-size:22px;color:#a8d3ff;font-weight:bold}
-.description{font-size:17px;line-height:1.8;color:#d2e2fa}
-.features{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:28px}
-.feature{padding:18px;border:1px solid #183d71;border-radius:16px;background:#0a2043aa}
-.feature strong{display:block;margin-bottom:7px;color:#43caff}
-.feature span{font-size:13px;color:#b8cce9}
-.panel{padding:30px;border:1px solid #174b87;border-radius:24px;background:linear-gradient(145deg,#0a2046eF,#06152ff2);box-shadow:0 20px 65px #0005}
-.panel h2{font-size:27px;margin:0 0 12px}
-.panel p{color:#a9c8f6;line-height:1.6}
-label{display:block;margin:28px 0 10px;font-weight:bold}
-input{width:100%;padding:17px;border-radius:13px;border:1px solid #315a91;background:#04132d;color:white;font-size:16px;outline:none}
-input:focus{border-color:#08c5ff;box-shadow:0 0 0 3px #08c5ff20}
-button{width:100%;margin-top:17px;padding:17px;border:0;border-radius:14px;background:linear-gradient(100deg,#09baff,#1767ff);color:white;font-size:17px;font-weight:bold;cursor:pointer}
+
+.status{
+  color:#a9c8f6;
+  font-size:14px
+}
+
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:65px 6% 35px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center
+}
+
+h1{
+  font-size:clamp(38px,5vw,64px);
+  margin:15px 0;
+  letter-spacing:-2px
+}
+
+.tagline{
+  font-size:22px;
+  color:#a8d3ff;
+  font-weight:bold
+}
+
+.description{
+  font-size:17px;
+  line-height:1.8;
+  color:#d2e2fa
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+  margin-top:28px
+}
+
+.feature{
+  padding:18px;
+  border:1px solid #183d71;
+  border-radius:16px;
+  background:#0a2043aa
+}
+
+.feature strong{
+  display:block;
+  margin-bottom:7px;
+  color:#43caff
+}
+
+.feature span{
+  font-size:13px;
+  color:#b8cce9
+}
+
+.panel{
+  padding:30px;
+  border:1px solid #174b87;
+  border-radius:24px;
+  background:linear-gradient(145deg,#0a2046ef,#06152ff2);
+  box-shadow:0 20px 65px #0005
+}
+
+.panel h2{
+  font-size:27px;
+  margin:0 0 12px
+}
+
+.panel p{
+  color:#a9c8f6;
+  line-height:1.6
+}
+
+label{
+  display:block;
+  margin:28px 0 10px;
+  font-weight:bold
+}
+
+input{
+  width:100%;
+  padding:17px;
+  border-radius:13px;
+  border:1px solid #315a91;
+  background:#04132d;
+  color:white;
+  font-size:16px;
+  outline:none
+}
+
+input:focus{
+  border-color:#08c5ff;
+  box-shadow:0 0 0 3px #08c5ff20
+}
+
+button{
+  width:100%;
+  margin-top:17px;
+  padding:17px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(100deg,#09baff,#1767ff);
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer
+}
+
 button:active{transform:scale(.99)}
-.notice{margin-top:22px;padding:17px;border:1px solid #19457b;border-radius:15px;background:#081b39}
+
+.notice{
+  margin-top:22px;
+  padding:17px;
+  border:1px solid #19457b;
+  border-radius:15px;
+  background:#081b39
+}
+
 .notice strong{color:#4ceca0}
-.notice p{margin:7px 0 0;font-size:14px}
-footer{margin:10px 6% 30px;padding:22px;border:1px solid #173b6d;border-radius:18px;display:flex;justify-content:space-around;gap:18px;flex-wrap:wrap;color:#bad0ef;font-size:14px}
+
+.notice p{
+  margin:7px 0 0;
+  font-size:14px
+}
+
+footer{
+  margin:10px 6% 30px;
+  padding:22px;
+  border:1px solid #173b6d;
+  border-radius:18px;
+  display:flex;
+  justify-content:space-around;
+  gap:18px;
+  flex-wrap:wrap;
+  color:#bad0ef;
+  font-size:14px
+}
+
 footer span{padding:5px}
-@media(max-width:760px){header{padding:16px 5%}.brand{font-size:21px}main{grid-template-columns:1fr;padding:38px 5%;gap:28px}.panel{padding:23px}h1{font-size:43px}.tagline{font-size:19px}.features{gap:10px}footer{margin:0 5% 22px;justify-content:flex-start}}
+
+.account-box,
+.pairing-box,
+.device-box{
+  margin:20px;
+  padding:22px;
+  background:#0b1c38;
+  border:1px solid #174b87;
+  border-radius:16px;
+  color:white
+}
+
+.account-box input{
+  margin:8px 0
+}
+
+.pairing-box,
+.device-box{
+  text-align:center;
+  background:#10264a
+}
+
+.pairing-code{
+  font-size:30px;
+  letter-spacing:7px;
+  color:#43caff;
+  overflow-wrap:anywhere
+}
+
+@media(max-width:760px){
+  header{padding:16px 5%}
+  .brand{font-size:21px}
+  main{
+    grid-template-columns:1fr;
+    padding:38px 5%;
+    gap:28px
+  }
+  .panel{padding:23px}
+  h1{font-size:43px}
+  .tagline{font-size:19px}
+  .features{gap:10px}
+  footer{
+    margin:0 5% 22px;
+    justify-content:flex-start
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-  <div class="brand"><div class="logo">G</div><div>Googlee <span class="blue">Remote</span></div></div>
+  <div class="brand">
+    <div class="logo">G</div>
+    <div>Googlee <span class="blue">Remote</span></div>
+  </div>
   <div class="status">● Not connected</div>
 </header>
+
 <main>
   <section>
     <div class="logo" style="width:76px;height:76px;font-size:48px">G</div>
+
     <h1>Googlee <span class="blue">Remote</span></h1>
+
     <div class="tagline">Control. Access. Stay Connected.</div>
-    <p class="description">A simple, modern way to connect your devices. Designed for a smooth and easy experience on mobile and desktop.</p>
+
+    <p class="description">
+      A simple, modern way to connect your devices.
+      Designed for a smooth and easy experience on mobile and desktop.
+    </p>
+
     <div class="features">
-      <div class="feature"><strong>⚡ Fast</strong><span>Simple connection setup</span></div>
-      <div class="feature"><strong>◇ Privacy</strong><span>Connection with permission</span></div>
-      <div class="feature"><strong>▣ Mobile</strong><span>Phone-friendly design</span></div>
-      <div class="feature"><strong>◎ Anywhere</strong><span>Designed for your devices</span></div>
+      <div class="feature">
+        <strong>⚡ Fast</strong>
+        <span>Simple connection setup</span>
+      </div>
+
+      <div class="feature">
+        <strong>◇ Privacy</strong>
+        <span>Connection with permission</span>
+      </div>
+
+      <div class="feature">
+        <strong>▣ Mobile</strong>
+        <span>Phone-friendly design</span>
+      </div>
+
+      <div class="feature">
+        <strong>◎ Anywhere</strong>
+        <span>Designed for your devices</span>
+      </div>
     </div>
   </section>
+
   <section class="panel">
     <h2>Connect Your Device</h2>
+
     <p>Enter a pairing code from your companion app to get started.</p>
+
     <label for="pair">🔗 Pairing Code</label>
-    <input id="pair" type="text" placeholder="Enter your pairing code" maxlength="30" autocomplete="off">
-    <button onclick="connectDevice()">↗ &nbsp; Connect Device &nbsp; ›</button>
+
+    <input
+      id="pair"
+      type="text"
+      placeholder="Enter your pairing code"
+      maxlength="30"
+      autocomplete="off"
+    >
+
+    <button onclick="connectDevice()">
+      ↗ &nbsp; Connect Device &nbsp; ›
+    </button>
+
     <div class="notice">
       <strong id="state">● Ready to connect</strong>
       <p id="message">Enter a code to begin.</p>
     </div>
   </section>
 </main>
+
 <footer>
   <span>◇ &nbsp; Privacy matters</span>
   <span>▣ &nbsp; Mobile friendly</span>
   <span>⚡ &nbsp; Simple and modern</span>
 </footer>
+
+<!-- Account Section -->
+<div class="account-box">
+  <h2>Googlee Remote Account</h2>
+
+  <input
+    id="email"
+    type="email"
+    placeholder="Email address"
+  >
+
+  <input
+    id="password"
+    type="password"
+    placeholder="Password (6+ characters)"
+  >
+
+  <button onclick="registerUser()">Create Account</button>
+
+  <button onclick="loginUser()">Sign In</button>
+
+  <p id="authMessage">Create an account or sign in.</p>
+</div>
+
 <script>
-function connectDevice() {
-  if (window.verifyPairingCode) {
+function connectDevice(){
+  if(window.verifyPairingCode){
     window.verifyPairingCode();
-  } else {
+  }else{
     alert("Pairing verification is not ready.");
   }
 }
- state.textContent='● Connection not configured';
-state.style.color='#ffcc70';
-message.textContent='The website design is ready, but a real device connection needs a companion app and secure connection service.';
+
+document.getElementById("state").textContent =
+  "● Connection not configured";
+
+document.getElementById("state").style.color = "#ffcc70";
+
+document.getElementById("message").textContent =
+  "The website design is ready, but a real device connection needs a companion app and secure connection service.";
 </script>
+
+<!-- Firebase Account and Pairing System -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDGrZ8i_j5yYEff0xAofo0qvM3Ck2zuQ0A",
-    authDomain: "remote-1e05a.firebaseapp.com",
-    databaseURL: "https://remote-1e05a-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "remote-1e05a",
-    storageBucket: "remote-1e05a.firebasestorage.app",
-    messagingSenderId: "987849938863",
-    appId: "1:987849938863:web:568a7eeb88b8fbac3c415a"
-  };
+import {
+  initializeApp,
+  getApp,
+  getApps
+} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
 import {
   getDatabase,
   ref,
@@ -108,233 +382,295 @@ import {
   get
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-database.js";
 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDGrZ8i_j5yYEff0xAofo0qvM3Ck2zuQ0A",
+  authDomain: "remote-1e05a.firebaseapp.com",
+  databaseURL: "https://remote-1e05a-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "remote-1e05a",
+  storageBucket: "remote-1e05a.firebasestorage.app",
+  messagingSenderId: "987849938863",
+  appId: "1:987849938863:web:568a7eeb88b8fbac3c415a"
+};
+
+
+// Initialize Firebase
+const app = getApps().length
+  ? getApp()
+  : initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
 const database = getDatabase(app);
-  console.log("Googlee Remote Firebase Auth ready");
-</script>
-<div style="margin-top:20px;padding:20px;background:#0b1c38;border-radius:16px;color:white">
-  <h2>Googlee Remote Account</h2>
-  <input id="email" type="email" placeholder="Email address"
-    style="width:100%;padding:14px;box-sizing:border-box;margin:8px 0">
-  <input id="password" type="password" placeholder="Password (6+ characters)"
-    style="width:100%;padding:14px;box-sizing:border-box;margin:8px 0">
-  <button onclick="registerUser()" style="padding:12px;margin:5px">
-    Create Account
-  </button>
-  <button onclick="loginUser()" style="padding:12px;margin:5px">
-    Sign In
-  </button>
-  <p id="authMessage">Create an account or sign in.</p>
-</div>
 
-<script type="module">
-  import { initializeApp, getApp, getApps } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-  import {
-    getAuth, createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
-  } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDGrZ8i_j5yYEff0xAofo0qvM3Ck2zuQ0A",
-    authDomain: "remote-1e05a.firebaseapp.com",
-    databaseURL: "https://remote-1e05a-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "remote-1e05a",
-    storageBucket: "remote-1e05a.firebasestorage.app",
-    messagingSenderId: "987849938863",
-    appId: "1:987849938863:web:568a7eeb88b8fbac3c415a"
-  };
+// Create Account
+window.registerUser = async function(){
 
-  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const msg = document.getElementById("authMessage");
 
-  window.registerUser = async function () {
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const msg = document.getElementById("authMessage");
+  try{
+    await createUserWithEmailAndPassword(auth,email,password);
 
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      msg.textContent = "Account created successfully!";
-    } catch (error) {
-      msg.textContent = "Error: " + error.message;
+    msg.textContent = "Account created successfully!";
+
+  }catch(error){
+    msg.textContent = "Error: " + error.message;
+  }
+};
+
+
+// Sign In
+window.loginUser = async function(){
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const msg = document.getElementById("authMessage");
+
+  try{
+    await signInWithEmailAndPassword(auth,email,password);
+
+    msg.textContent = "Signed in successfully!";
+
+  }catch(error){
+    msg.textContent = "Error: " + error.message;
+  }
+};
+
+
+// Permanent Device ID
+function getPermanentDeviceId(){
+
+  const key = "googlee_remote_device_id";
+
+  let id = localStorage.getItem(key);
+
+  if(!id){
+
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+    id = "GR-";
+
+    for(let i=0;i<8;i++){
+      id += chars[Math.floor(Math.random()*chars.length)];
     }
-  };
 
-  window.loginUser = async function () {
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const msg = document.getElementById("authMessage");
+    localStorage.setItem(key,id);
+  }
 
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      msg.textContent = "Signed in successfully!";
-    } catch (error) {
-      msg.textContent = "Error: " + error.message;
-    }
-  };
+  return id;
+}
 
+
+// Pairing Code Section
 const pairingBox = document.createElement("div");
-pairingBox.style.cssText =
-  "padding:20px;text-align:center;color:white;background:#10264a;border-radius:16px;margin:20px;";
+
+pairingBox.className = "pairing-box";
 
 pairingBox.innerHTML = `
   <h2>Googlee Remote</h2>
-  <button id="makeCode"
-    style="padding:14px 24px;border:0;border-radius:10px;
-    background:#1677ff;color:white;font-size:18px;">
+
+  <p>Generate a temporary pairing code for another device.</p>
+
+  <button id="makeCode">
     Generate Pairing Code
   </button>
-  <h2 id="pairCode" style="letter-spacing:5px"></h2>
+
+  <h2 id="pairCode" class="pairing-code"></h2>
+
+  <p>Pairing code expires after 10 minutes.</p>
 `;
 
 document.body.appendChild(pairingBox);
 
-document.getElementById("makeCode").onclick = async function () {
+
+// Generate Pairing Code
+document.getElementById("makeCode").onclick = async function(){
+
   const user = auth.currentUser;
 
-  if (!user) {
+  if(!user){
     alert("Please sign in first");
     return;
   }
 
   let code = localStorage.getItem("googlee_active_code");
-  let expiry = Number(localStorage.getItem("googlee_code_expiry"));
 
-  if (!code || Date.now() > expiry) {
+  let expiry = Number(
+    localStorage.getItem("googlee_code_expiry")
+  );
+
+  if(!code || Date.now() > expiry){
+
     const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
     code = "";
 
-    for (let i = 0; i < 6; i++) {
-      code += chars[Math.floor(Math.random() * chars.length)];
+    for(let i=0;i<6;i++){
+      code += chars[Math.floor(Math.random()*chars.length)];
     }
 
-    expiry = Date.now() + 10 * 60 * 1000;
+    expiry = Date.now() + 10*60*1000;
 
-    localStorage.setItem("googlee_active_code", code);
-    localStorage.setItem("googlee_code_expiry", expiry);
+    localStorage.setItem("googlee_active_code",code);
+
+    localStorage.setItem("googlee_code_expiry",expiry);
   }
 
-  try {
-    await set(ref(database, "pairingCodes/" + code), {
-      hostUid: user.uid,
-      createdAt: Date.now(),
-      expiresAt: expiry
+  try{
+
+    await set(ref(database,"pairingCodes/" + code),{
+      hostUid:user.uid,
+      createdAt:Date.now(),
+      expiresAt:expiry
     });
 
     document.getElementById("pairCode").textContent = code;
-  } catch (error) {
-    alert("Error: " + error.message);
+
+  }catch(error){
+
+    alert("Firebase error: " + error.message);
+
+    console.error(error);
   }
 };
 
+
+// Display Permanent Device ID
 const permanentId = getPermanentDeviceId();
 
 const idDisplay = document.createElement("div");
-idDisplay.style.cssText =
-  "margin:20px;padding:18px;background:#10264a;color:white;text-align:center;border-radius:14px;";
+
+idDisplay.className = "device-box";
 
 idDisplay.innerHTML = `
   <h3>Your Permanent Device ID</h3>
+
   <h2 id="permanentIdValue"></h2>
-  <button id="copyPermanentId">Copy ID</button>
+
+  <button id="copyPermanentId">
+    Copy ID
+  </button>
 `;
 
 document.body.appendChild(idDisplay);
 
 document.getElementById("permanentIdValue").textContent = permanentId;
 
-document.getElementById("copyPermanentId").onclick = async function () {
-  try {
+
+// Copy Permanent Device ID
+document.getElementById("copyPermanentId").onclick = async function(){
+
+  try{
+
     await navigator.clipboard.writeText(permanentId);
+
     this.textContent = "Copied!";
-  } catch {
-    prompt("Copy your Device ID:", permanentId);
+
+  }catch(error){
+
+    prompt("Copy your Device ID:",permanentId);
   }
 };
 
-function getPermanentDeviceId() {
-  const key = "googlee_remote_device_id";
-  let id = localStorage.getItem(key);
 
-  if (!id) {
-    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-    id = "GR-";
+// Verify Pairing Code
+window.verifyPairingCode = async function(){
 
-    for (let i = 0; i < 8; i++) {
-      id += chars[Math.floor(Math.random() * chars.length)];
-    }
-
-    localStorage.setItem(key, id);
-  }
-
-  return id;
-}
-import {
-  getDatabase,
-  ref,
-  set,
-  get
-} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-database.js";
-
-const database = getDatabase(app);
-window.verifyPairingCode = async function () {
   const code = document.getElementById("pair").value.trim().toUpperCase();
+
   const state = document.getElementById("state");
+
   const message = document.getElementById("message");
 
-  if (!auth.currentUser) {
+
+  if(!auth.currentUser){
+
     state.textContent = "Sign in required";
+
     message.textContent = "Please sign in first.";
+
     return;
   }
 
-  if (!code) {
+
+  if(!code){
+
     message.textContent = "Enter a pairing code.";
+
     return;
   }
 
-  try {
+
+  try{
+
     const snapshot = await get(
-      ref(database, "pairingCodes/" + code)
+      ref(database,"pairingCodes/" + code)
     );
 
-    if (!snapshot.exists()) {
+
+    if(!snapshot.exists()){
+
       state.textContent = "Invalid code";
+
       message.textContent = "Pairing code not found.";
+
       return;
     }
+
 
     const data = snapshot.val();
 
-    if (Date.now() > data.expiresAt) {
+
+    if(Date.now() > data.expiresAt){
+
       state.textContent = "Code expired";
+
       message.textContent = "Please generate a new code.";
+
       return;
     }
+
 
     const sessionRef = ref(
       database,
       "pairingCodes/" + code + "/sessions/" + auth.currentUser.uid
     );
 
-    await set(sessionRef, {
-      hostUid: data.hostUid,
-      guestUid: auth.currentUser.uid,
-      createdAt: Date.now(),
-      status: "requesting"
+
+    await set(sessionRef,{
+
+      hostUid:data.hostUid,
+
+      guestUid:auth.currentUser.uid,
+
+      createdAt:Date.now(),
+
+      status:"requesting"
+
     });
 
+
     state.textContent = "Code verified";
+
     message.textContent =
       "Session saved successfully. Device connection is not active yet.";
 
-  } catch (error) {
+
+  }catch(error){
+
     state.textContent = "Session Error";
+
     message.textContent = "Firebase error: " + error.message;
-    console.error("Session error:", error);
+
+    console.error("Session error:",error);
   }
 };
 
-console.log("Googlee Remote database ready");
+
+console.log("Googlee Remote Firebase database ready");
+
 </script>
 </body>
 </html>
