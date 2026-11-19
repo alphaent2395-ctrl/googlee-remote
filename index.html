@@ -6,731 +6,391 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#17191d">
 <title>Googlee Remote</title>
-
 <style>
 *{box-sizing:border-box}
-
 :root{
-  --bg:#17191d;
-  --panel:#22252b;
-  --panel2:#292d34;
-  --line:#393e47;
-  --text:#f4f5f7;
-  --muted:#a5abb5;
-  --accent:#ed4545;
-  --accent2:#ff6262;
-  --green:#36c98a;
+  --bg:#17191d;--panel:#22252b;--line:#393e47;
+  --text:#f4f5f7;--muted:#a5abb5;--accent:#ed4545;
+  --accent2:#ff6262;--green:#36c98a;
 }
-
-body{
-  margin:0;
-  min-height:100vh;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-}
-
-header{
-  height:76px;
-  padding:0 6%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid var(--line);
-  background:#1d2025;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:23px;
-  font-weight:bold;
-}
-
-.logo{
-  width:42px;
-  height:42px;
-  display:grid;
-  place-items:center;
-  border-radius:11px;
-  background:var(--accent);
-  color:white;
-  font-size:27px;
-  font-weight:bold;
-}
-
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+header{height:70px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#1d2025}
+.brand{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:bold}
+.logo{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;background:var(--accent);color:white;font-size:25px}
 .brand span{color:var(--accent2)}
-
-.status{
-  color:var(--muted);
-  font-size:13px;
-}
-
-main{
-  width:min(100%,850px);
-  margin:35px auto;
-  padding:0 18px;
-}
-
-.heading{
-  margin-bottom:25px;
-}
-
-.heading h1{
-  margin:0 0 8px;
-  font-size:30px;
-}
-
-.heading p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.5;
-}
-
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:23px;
-  margin-bottom:18px;
-}
-
-.card-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.card-icon{
-  width:40px;
-  height:40px;
-  display:grid;
-  place-items:center;
-  border-radius:10px;
-  background:#3a292c;
-  color:var(--accent2);
-  font-size:20px;
-}
-
-h2{
-  font-size:19px;
-  margin:0;
-}
-
-.description{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.6;
-  margin:0 0 18px;
-}
-
-label{
-  display:block;
-  margin:15px 0 8px;
-  font-size:14px;
-  font-weight:bold;
-}
-
-input{
-  width:100%;
-  padding:15px;
-  border:1px solid #454b55;
-  border-radius:9px;
-  background:#17191d;
-  color:white;
-  font-size:16px;
-  outline:none;
-}
-
-input:focus{
-  border-color:var(--accent);
-}
-
-button{
-  border:0;
-  border-radius:9px;
-  padding:14px 18px;
-  background:var(--accent);
-  color:white;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:active{transform:scale(.98)}
-
-.primary{
-  width:100%;
-  margin-top:14px;
-}
-
-.secondary{
-  background:#393e47;
-  margin-top:10px;
-}
-
-.input-code{
-  text-transform:uppercase;
-  letter-spacing:3px;
-  text-align:center;
-  font-weight:bold;
-}
-
-.message{
-  margin-top:14px;
-  padding:12px;
-  border-radius:8px;
-  background:#191c21;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.5;
-  overflow-wrap:anywhere;
-}
-
-.device-id{
-  font-size:25px;
-  letter-spacing:2px;
-  color:var(--accent2);
-  font-weight:bold;
-  text-align:center;
-  margin:18px 0;
-  overflow-wrap:anywhere;
-}
-
-.code-display{
-  font-size:32px;
-  font-weight:bold;
-  letter-spacing:7px;
-  color:var(--accent2);
-  text-align:center;
-  margin:20px 0;
-  overflow-wrap:anywhere;
-}
-
-.account-actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:12px;
-}
-
+.status{color:var(--muted);font-size:12px}
+main{width:min(100%,850px);margin:28px auto;padding:0 18px}
+.heading{margin-bottom:22px}
+.heading h1{margin:0 0 8px;font-size:29px}
+.heading p{margin:0;color:var(--muted);line-height:1.5}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px;margin-bottom:17px}
+.card-title{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.card-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;background:#3a292c;color:var(--accent2);font-size:20px}
+h2{font-size:19px;margin:0}
+.description{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 17px}
+label{display:block;margin:14px 0 8px;font-size:14px;font-weight:bold}
+input{width:100%;padding:14px;border:1px solid #454b55;border-radius:9px;background:#17191d;color:white;font-size:16px;outline:none}
+input:focus{border-color:var(--accent)}
+button{border:0;border-radius:9px;padding:14px 17px;background:var(--accent);color:white;font-size:15px;font-weight:bold;cursor:pointer}
+button:disabled{opacity:.55;cursor:not-allowed}
+.primary{width:100%;margin-top:13px}
+.secondary{background:#393e47}
+.input-code{text-transform:uppercase;letter-spacing:3px;text-align:center;font-weight:bold}
+.message{margin-top:13px;padding:12px;border-radius:8px;background:#191c21;color:var(--muted);font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.device-id{font-size:24px;letter-spacing:2px;color:var(--accent2);font-weight:bold;text-align:center;margin:18px 0;overflow-wrap:anywhere}
+.code-display{font-size:32px;font-weight:bold;letter-spacing:7px;color:var(--accent2);text-align:center;margin:20px 0;overflow-wrap:anywhere}
+.account-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 .account-actions button{width:100%}
-
-.request-item{
-  padding:15px;
-  margin-top:12px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:#191c21;
-}
-
-.request-actions{
-  display:flex;
-  gap:10px;
-  margin-top:12px;
-}
-
+.request-item{padding:15px;margin-top:12px;border:1px solid var(--line);border-radius:10px;background:#191c21}
+.request-actions{display:flex;gap:10px;margin-top:12px}
 .request-actions button{flex:1}
 .accept{background:#218b60}
 .reject{background:#a93636}
-
 @media(max-width:600px){
-  header{height:68px;padding:0 16px}
-  .brand{font-size:20px}
-  main{margin:25px auto}
-  .heading h1{font-size:26px}
-  .card{padding:18px}
-  .account-actions{grid-template-columns:1fr}
+ header{height:65px;padding:0 15px}
+ .brand{font-size:19px}
+ main{margin:22px auto}
+ .heading h1{font-size:26px}
+ .card{padding:18px}
+ .account-actions{grid-template-columns:1fr}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="brand">
-    <div class="logo">G</div>
-    <div>Googlee <span>Remote</span></div>
-  </div>
-  <div class="status" id="topStatus">● Not connected</div>
+  <div class="brand"><div class="logo">G</div><div>Googlee <span>Remote</span></div></div>
+  <div class="status" id="topStatus">● Not signed in</div>
 </header>
 
 <main>
-
   <div class="heading">
     <h1>Remote Access</h1>
     <p>Connect to another device using a secure pairing request.</p>
   </div>
 
-  <!-- Connect to another device -->
+  <!-- ACCOUNT FIRST -->
   <section class="card">
-    <div class="card-title">
-      <div class="card-icon">↗</div>
-      <h2>Connect to Device</h2>
+    <div class="card-title"><div class="card-icon">●</div><h2>Account</h2></div>
+    <p class="description">Sign in or create an account to use Googlee Remote.</p>
+    <label for="email">Email Address</label>
+    <input id="email" type="email" placeholder="Enter your email" autocomplete="email">
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Password (6+ characters)" autocomplete="current-password">
+    <div class="account-actions">
+      <button onclick="registerUser()">Create Account</button>
+      <button class="secondary" onclick="loginUser()">Sign In</button>
     </div>
+    <div id="authMessage" class="message">Create an account or sign in.</div>
+  </section>
 
-    <p class="description">
-      Enter the temporary pairing code shown on the other device.
-    </p>
-
+  <!-- CONNECT -->
+  <section class="card">
+    <div class="card-title"><div class="card-icon">↗</div><h2>Connect to Device</h2></div>
+    <p class="description">Enter the temporary pairing code shown on the other device.</p>
     <label for="pair">Device Pairing Code</label>
-    <input
-      id="pair"
-      class="input-code"
-      type="text"
-      placeholder="ENTER CODE"
-      maxlength="30"
-      autocomplete="off"
-    >
-
-    <button class="primary" onclick="connectDevice()">
-      Connect Device
-    </button>
-
+    <input id="pair" class="input-code" type="text" placeholder="ENTER CODE" maxlength="6" autocomplete="off">
+    <button class="primary" onclick="connectDevice()">Connect Device</button>
     <div class="message">
       <strong id="state">Ready to connect</strong>
       <div id="message">Enter a pairing code to begin.</div>
     </div>
   </section>
 
-  <!-- Generate pairing code -->
+  <!-- SHARE DEVICE -->
   <section class="card">
-    <div class="card-title">
-      <div class="card-icon">⌁</div>
-      <h2>Share Your Device</h2>
-    </div>
-
-    <p class="description">
-      Generate a temporary code so another device can request access.
-    </p>
-
-    <button class="primary" id="makeCode">
-      Generate Pairing Code
-    </button>
-
+    <div class="card-title"><div class="card-icon">⌁</div><h2>Share Your Device</h2></div>
+    <p class="description">Generate a temporary code so another device can request access.</p>
+    <button class="primary" id="makeCode">Generate Pairing Code</button>
     <div id="pairCode" class="code-display"></div>
-    <div class="message" id="codeMessage">
-      Your temporary code will appear here. It expires after 10 minutes.
-    </div>
-
-    <h3 style="font-size:16px;margin-top:25px">
-      Connection Requests
-    </h3>
-    <div id="requestStatus" class="message">
-      Waiting for connection requests...
-    </div>
+    <div class="message" id="codeMessage">Your temporary code will appear here. It expires after 10 minutes.</div>
+    <h3 style="font-size:16px;margin-top:24px">Connection Requests</h3>
+    <div id="requestStatus" class="message">Waiting for connection requests...</div>
     <div id="requestDetails"></div>
   </section>
 
-  <!-- Permanent device ID -->
+  <!-- DEVICE ID -->
   <section class="card">
-    <div class="card-title">
-      <div class="card-icon">▣</div>
-      <h2>Your Device ID</h2>
-    </div>
-
-    <p class="description">
-      Your permanent device identifier.
-    </p>
-
+    <div class="card-title"><div class="card-icon">▣</div><h2>Your Device ID</h2></div>
+    <p class="description">Your permanent device identifier.</p>
     <div id="permanentIdValue" class="device-id"></div>
-    <button class="primary" id="copyPermanentId">
-      Copy Device ID
-    </button>
+    <button class="primary" id="copyPermanentId">Copy Device ID</button>
   </section>
-
-  <!-- Account -->
-  <section class="card">
-    <div class="card-title">
-      <div class="card-icon">●</div>
-      <h2>Account</h2>
-    </div>
-
-    <p class="description">
-      Sign in to use Googlee Remote.
-    </p>
-
-    <label for="email">Email Address</label>
-    <input id="email" type="email" placeholder="Enter your email">
-
-    <label for="password">Password</label>
-    <input
-      id="password"
-      type="password"
-      placeholder="Password (6+ characters)"
-    >
-
-    <div class="account-actions">
-      <button onclick="registerUser()">Create Account</button>
-      <button class="secondary" onclick="loginUser()">Sign In</button>
-    </div>
-
-    <div id="authMessage" class="message">
-      Create an account or sign in.
-    </div>
-  </section>
-
 </main>
 
 <script>
 function connectDevice(){
-  if(window.verifyPairingCode){
-    window.verifyPairingCode();
-  }else{
-    document.getElementById("message").textContent =
-      "Pairing verification is not ready.";
-  }
+  if(window.verifyPairingCode) window.verifyPairingCode();
+  else document.getElementById("message").textContent="Connection is not ready.";
 }
 </script>
 
 <script type="module">
+import {initializeApp,getApp,getApps} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+import {getDatabase,ref,set,get,onValue} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-database.js";
 
-import {
-  initializeApp,
-  getApp,
-  getApps
-} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
-
-import {
-  getDatabase,
-  ref,
-  set,
-  get,
-  onValue
-} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-database.js";
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDGrZ8i_j5yYEff0xAofo0qvM3Ck2zuQ0A",
-  authDomain: "remote-1e05a.firebaseapp.com",
-  databaseURL: "https://remote-1e05a-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "remote-1e05a",
-  storageBucket: "remote-1e05a.firebasestorage.app",
-  messagingSenderId: "987849938863",
-  appId: "1:987849938863:web:568a7eeb88b8fbac3c415a"
+const firebaseConfig={
+ apiKey:"AIzaSyDGrZ8i_j5yYEff0xAofo0qvM3Ck2zuQ0A",
+ authDomain:"remote-1e05a.firebaseapp.com",
+ databaseURL:"https://remote-1e05a-default-rtdb.europe-west1.firebasedatabase.app",
+ projectId:"remote-1e05a",
+ storageBucket:"remote-1e05a.firebasestorage.app",
+ messagingSenderId:"987849938863",
+ appId:"1:987849938863:web:568a7eeb88b8fbac3c415a"
 };
 
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const database = getDatabase(app);
+const app=getApps().length?getApp():initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const database=getDatabase(app);
 
+const el=id=>document.getElementById(id);
+let requestUnsubscribe=null;
+let sessionUnsubscribe=null;
 
-// Account creation
-window.registerUser = async function(){
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-  const msg = document.getElementById("authMessage");
-
-  try{
-    await createUserWithEmailAndPassword(auth,email,password);
-    msg.textContent = "Account created successfully!";
-  }catch(error){
-    msg.textContent = "Error: " + error.message;
-  }
+window.registerUser=async function(){
+ const email=el("email").value.trim();
+ const password=el("password").value;
+ try{
+  await createUserWithEmailAndPassword(auth,email,password);
+  el("authMessage").textContent="Account created successfully!";
+ }catch(e){el("authMessage").textContent="Error: "+e.message;}
 };
 
-
-// Sign in
-window.loginUser = async function(){
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-  const msg = document.getElementById("authMessage");
-
-  try{
-    await signInWithEmailAndPassword(auth,email,password);
-    msg.textContent = "Signed in successfully!";
-  }catch(error){
-    msg.textContent = "Error: " + error.message;
-  }
+window.loginUser=async function(){
+ const email=el("email").value.trim();
+ const password=el("password").value;
+ try{
+  await signInWithEmailAndPassword(auth,email,password);
+  el("authMessage").textContent="Signed in successfully!";
+ }catch(e){el("authMessage").textContent="Error: "+e.message;}
 };
 
-
-// Permanent device ID
 function getPermanentDeviceId(){
-  const key = "googlee_remote_device_id";
-  let id = localStorage.getItem(key);
-
-  if(!id){
-    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-    id = "GR-";
-
-    for(let i=0;i<8;i++){
-      id += chars[Math.floor(Math.random()*chars.length)];
-    }
-
-    localStorage.setItem(key,id);
-  }
-
-  return id;
+ const key="googlee_remote_device_id";
+ let id=localStorage.getItem(key);
+ if(!id){
+  const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  id="GR-";
+  for(let i=0;i<8;i++) id+=chars[Math.floor(Math.random()*chars.length)];
+  localStorage.setItem(key,id);
+ }
+ return id;
 }
+const permanentId=getPermanentDeviceId();
+el("permanentIdValue").textContent=permanentId;
 
-const permanentId = getPermanentDeviceId();
-
-document.getElementById("permanentIdValue").textContent = permanentId;
-
-
-// Copy device ID
-document.getElementById("copyPermanentId").onclick = async function(){
-  try{
-    await navigator.clipboard.writeText(permanentId);
-    this.textContent = "Copied!";
-  }catch(error){
-    prompt("Copy your Device ID:",permanentId);
-  }
+el("copyPermanentId").onclick=async function(){
+ try{
+  await navigator.clipboard.writeText(permanentId);
+  this.textContent="Copied!";
+ }catch(e){prompt("Copy your Device ID:",permanentId);}
 };
 
-
-// Generate pairing code
-document.getElementById("makeCode").onclick = async function(){
-  const user = auth.currentUser;
-
-  if(!user){
-    document.getElementById("codeMessage").textContent =
-      "Please sign in first.";
-    return;
-  }
-
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let code = "";
-
-  for(let i=0;i<6;i++){
-    code += chars[Math.floor(Math.random()*chars.length)];
-  }
-
-  const expiry = Date.now() + 10*60*1000;
-
-  try{
-    await set(ref(database,"pairingCodes/" + code),{
-      hostUid:user.uid,
-      createdAt:Date.now(),
-      expiresAt:expiry
-    });
-
-    localStorage.setItem("googlee_active_code",code);
-    localStorage.setItem("googlee_code_expiry",String(expiry));
-
-    document.getElementById("pairCode").textContent = code;
-    document.getElementById("codeMessage").textContent =
-      "Code created. It expires in 10 minutes.";
-
-    listenForRequests();
-
-  }catch(error){
-    document.getElementById("codeMessage").textContent =
-      "Firebase error: " + error.message;
-  }
-};
-
-
-// Listen for requests for this device's active code
-let requestListener = null;
-
+// Listen only to this device's current code
 function listenForRequests(){
-  const user = auth.currentUser;
-  const code = localStorage.getItem("googlee_active_code");
+ if(requestUnsubscribe){requestUnsubscribe();requestUnsubscribe=null;}
+ const user=auth.currentUser;
+ const code=localStorage.getItem("googlee_active_code");
+ if(!user||!code)return;
 
-  if(!user || !code || requestListener) return;
+ const requestsRef=ref(database,"pairingCodes/"+code+"/sessions");
+ requestUnsubscribe=onValue(requestsRef,snapshot=>{
+  const sessions=snapshot.val()||{};
+  el("requestDetails").innerHTML="";
+  let found=false;
 
-  const requestsRef = ref(
-    database,
-    "pairingCodes/" + code + "/sessions"
-  );
+  Object.entries(sessions).forEach(([guestUid,session])=>{
+   if(session.hostUid!==user.uid||session.status!=="requesting")return;
+   found=true;
 
-  requestListener = onValue(requestsRef,(snapshot)=>{
-    const sessions = snapshot.val() || {};
-    const details = document.getElementById("requestDetails");
-    const status = document.getElementById("requestStatus");
+   const item=document.createElement("div");
+   item.className="request-item";
+   const title=document.createElement("strong");
+   title.textContent="New connection request";
+   const info=document.createElement("p");
+   info.textContent="A device is requesting access.";
+   const actions=document.createElement("div");
+   actions.className="request-actions";
 
-    details.innerHTML = "";
-    let found = false;
-
-    Object.keys(sessions).forEach((guestUid)=>{
-      const session = sessions[guestUid];
-
-      if(
-        session.hostUid === user.uid &&
-        session.status === "requesting"
-      ){
-        found = true;
-
-        const item = document.createElement("div");
-        item.className = "request-item";
-
-        const title = document.createElement("strong");
-        title.textContent = "New connection request";
-
-        const info = document.createElement("p");
-        info.textContent = "A device is requesting access.";
-
-        const actions = document.createElement("div");
-        actions.className = "request-actions";
-
-        const accept = document.createElement("button");
-        accept.className = "accept";
-        accept.textContent = "Accept";
-
-        const reject = document.createElement("button");
-        reject.className = "reject";
-        reject.textContent = "Reject";
-
-        accept.onclick = async ()=>{
-          try{
-            await set(
-              ref(database,"pairingCodes/" + code + "/sessions/" + guestUid + "/status"),
-              "accepted"
-            );
-            status.textContent = "Request accepted.";
-            item.remove();
-          }catch(error){
-            status.textContent = "Error: " + error.message;
-          }
-        };
-
-        reject.onclick = async ()=>{
-          try{
-            await set(
-              ref(database,"pairingCodes/" + code + "/sessions/" + guestUid + "/status"),
-              "rejected"
-            );
-            status.textContent = "Request rejected.";
-            item.remove();
-          }catch(error){
-            status.textContent = "Error: " + error.message;
-          }
-        };
-
-        actions.appendChild(accept);
-        actions.appendChild(reject);
-        item.appendChild(title);
-        item.appendChild(info);
-        item.appendChild(actions);
-        details.appendChild(item);
-      }
-    });
-
-    if(!found){
-      status.textContent = "No pending requests.";
+   const accept=document.createElement("button");
+   accept.className="accept";
+   accept.textContent="Accept";
+   accept.onclick=async()=>{
+    accept.disabled=true;
+    try{
+     await set(ref(database,"pairingCodes/"+code+"/sessions/"+guestUid+"/status"),"accepted");
+     el("requestStatus").textContent="Request accepted.";
+     item.remove();
+    }catch(e){
+     accept.disabled=false;
+     el("requestStatus").textContent="Error: "+e.message;
     }
-  },(error)=>{
-    document.getElementById("requestStatus").textContent =
-      "Request listener error: " + error.message;
+   };
+
+   const reject=document.createElement("button");
+   reject.className="reject";
+   reject.textContent="Reject";
+   reject.onclick=async()=>{
+    reject.disabled=true;
+    try{
+     await set(ref(database,"pairingCodes/"+code+"/sessions/"+guestUid+"/status"),"rejected");
+     el("requestStatus").textContent="Request rejected.";
+     item.remove();
+    }catch(e){
+     reject.disabled=false;
+     el("requestStatus").textContent="Error: "+e.message;
+    }
+   };
+
+   actions.append(accept,reject);
+   item.append(title,info,actions);
+   el("requestDetails").appendChild(item);
   });
+
+  if(!found)el("requestStatus").textContent="No pending requests.";
+ },error=>{
+  el("requestStatus").textContent="Listener error: "+error.message;
+ });
 }
 
+// Keep the same code until it expires
+el("makeCode").onclick=async function(){
+ const user=auth.currentUser;
+ if(!user){
+  el("codeMessage").textContent="Please sign in first.";
+  return;
+ }
 
-// Start request listener after sign-in
-onAuthStateChanged(auth,(user)=>{
-  document.getElementById("topStatus").textContent =
-    user ? "● Signed in" : "● Not connected";
+ const button=this;
+ button.disabled=true;
+ const now=Date.now();
+ let code=localStorage.getItem("googlee_active_code");
+ let expiry=Number(localStorage.getItem("googlee_code_expiry")||0);
 
-  if(user){
+ try{
+  if(code&&expiry>now){
+   const existing=await get(ref(database,"pairingCodes/"+code));
+   if(existing.exists()&&existing.val().hostUid===user.uid&&existing.val().expiresAt>now){
+    expiry=existing.val().expiresAt;
+    el("pairCode").textContent=code;
+    el("codeMessage").textContent="Your existing code is still active. It expires in "+Math.ceil((expiry-now)/60000)+" minute(s).";
     listenForRequests();
+    return;
+   }
   }
+
+  // Expired or missing: create a new code
+  const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  code="";
+  for(let i=0;i<6;i++)code+=chars[Math.floor(Math.random()*chars.length)];
+  expiry=Date.now()+10*60*1000;
+
+  await set(ref(database,"pairingCodes/"+code),{
+   hostUid:user.uid,
+   createdAt:Date.now(),
+   expiresAt:expiry
+  });
+
+  localStorage.setItem("googlee_active_code",code);
+  localStorage.setItem("googlee_code_expiry",String(expiry));
+  el("pairCode").textContent=code;
+  el("codeMessage").textContent="New code created. It expires in 10 minutes.";
+  listenForRequests();
+
+ }catch(e){
+  el("codeMessage").textContent="Firebase error: "+e.message;
+ }finally{
+  button.disabled=false;
+ }
+};
+
+// Update sign-in status and restore active code display
+onAuthStateChanged(auth,user=>{
+ el("topStatus").textContent=user?"● Signed in":"● Not signed in";
+ if(user){
+  const code=localStorage.getItem("googlee_active_code");
+  const expiry=Number(localStorage.getItem("googlee_code_expiry")||0);
+  if(code&&expiry>Date.now()){
+   el("pairCode").textContent=code;
+   el("codeMessage").textContent="Your code is active. It expires in "+Math.ceil((expiry-Date.now())/60000)+" minute(s).";
+  }
+  listenForRequests();
+ }else{
+  if(requestUnsubscribe){requestUnsubscribe();requestUnsubscribe=null;}
+ }
 });
 
+// Send pairing request and listen for response in real time
+window.verifyPairingCode=async function(){
+ const code=el("pair").value.trim().toUpperCase();
+ if(!auth.currentUser){
+  el("state").textContent="Sign in required";
+  el("message").textContent="Please sign in first.";
+  return;
+ }
+ if(!code){
+  el("message").textContent="Enter a pairing code.";
+  return;
+ }
 
-// Verify pairing code and watch its status
-let sessionListener = null;
-
-window.verifyPairingCode = async function(){
-  const code = document.getElementById("pair").value.trim().toUpperCase();
-  const state = document.getElementById("state");
-  const message = document.getElementById("message");
-
-  if(!auth.currentUser){
-    state.textContent = "Sign in required";
-    message.textContent = "Please sign in first.";
-    return;
+ try{
+  const codeSnapshot=await get(ref(database,"pairingCodes/"+code));
+  if(!codeSnapshot.exists()){
+   el("state").textContent="Invalid code";
+   el("message").textContent="Pairing code not found.";
+   return;
   }
 
-  if(!code){
-    message.textContent = "Enter a pairing code.";
-    return;
+  const data=codeSnapshot.val();
+  if(Date.now()>data.expiresAt){
+   el("state").textContent="Code expired";
+   el("message").textContent="Please ask the other device to generate a new code.";
+   return;
+  }
+  if(data.hostUid===auth.currentUser.uid){
+   el("state").textContent="Same device";
+   el("message").textContent="Use another account/device to connect.";
+   return;
   }
 
-  try{
-    const snapshot = await get(ref(database,"pairingCodes/" + code));
+  if(sessionUnsubscribe){sessionUnsubscribe();sessionUnsubscribe=null;}
 
-    if(!snapshot.exists()){
-      state.textContent = "Invalid code";
-      message.textContent = "Pairing code not found.";
-      return;
-    }
+  const sessionRef=ref(database,"pairingCodes/"+code+"/sessions/"+auth.currentUser.uid);
+  await set(sessionRef,{
+   hostUid:data.hostUid,
+   guestUid:auth.currentUser.uid,
+   createdAt:Date.now(),
+   status:"requesting"
+  });
 
-    const data = snapshot.val();
+  el("state").textContent="Request sent";
+  el("message").textContent="Waiting for the other device to accept...";
 
-    if(Date.now() > data.expiresAt){
-      state.textContent = "Code expired";
-      message.textContent = "Please generate a new code.";
-      return;
-    }
+  sessionUnsubscribe=onValue(sessionRef,snap=>{
+   const session=snap.val();
+   if(!session)return;
+   if(session.status==="accepted"){
+    el("state").textContent="Request accepted";
+    el("message").textContent="The other device accepted your request. Screen sharing is not active yet.";
+   }else if(session.status==="rejected"){
+    el("state").textContent="Request rejected";
+    el("message").textContent="The other device declined the request.";
+   }else{
+    el("state").textContent="Waiting for approval";
+    el("message").textContent="Please wait for the other device to respond.";
+   }
+  },error=>{
+   el("state").textContent="Connection error";
+   el("message").textContent=error.message;
+  });
 
-    if(data.hostUid === auth.currentUser.uid){
-      state.textContent = "Same device";
-      message.textContent = "Use another account/device to connect.";
-      return;
-    }
-
-    const sessionRef = ref(
-      database,
-      "pairingCodes/" + code + "/sessions/" + auth.currentUser.uid
-    );
-
-    await set(sessionRef,{
-      hostUid:data.hostUid,
-      guestUid:auth.currentUser.uid,
-      createdAt:Date.now(),
-      status:"requesting"
-    });
-
-    state.textContent = "Request sent";
-    message.textContent = "Waiting for the other device to accept...";
-
-    if(sessionListener){
-      sessionListener();
-      sessionListener = null;
-    }
-
-    sessionListener = onValue(
-      ref(database,"pairingCodes/" + code + "/sessions/" + auth.currentUser.uid),
-      (sessionSnapshot)=>{
-        const session = sessionSnapshot.val();
-        if(!session) return;
-
-        if(session.status === "accepted"){
-          state.textContent = "Request accepted";
-          message.textContent =
-            "The other device accepted. Actual screen sharing is not active yet.";
-        }else if(session.status === "rejected"){
-          state.textContent = "Request rejected";
-          message.textContent =
-            "The other device declined the request.";
-        }else{
-          state.textContent = "Waiting for approval";
-          message.textContent =
-            "Please wait for the other device to respond.";
-        }
-      }
-    );
-
-  }catch(error){
-    state.textContent = "Connection error";
-    message.textContent = "Firebase error: " + error.message;
-    console.error(error);
-  }
+ }catch(e){
+  el("state").textContent="Connection error";
+  el("message").textContent="Firebase error: "+e.message;
+ }
 };
 
 console.log("Googlee Remote ready");
-
 </script>
 </body>
 </html>
