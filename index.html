@@ -293,7 +293,9 @@ window.verifyPairingCode = async function () {
   }
 
   try {
-    const snapshot = await get(ref(database, "pairingCodes/" + code));
+    const snapshot = await get(
+      ref(database, "pairingCodes/" + code)
+    );
 
     if (!snapshot.exists()) {
       state.textContent = "Invalid code";
@@ -308,6 +310,7 @@ window.verifyPairingCode = async function () {
       message.textContent = "Please generate a new code.";
       return;
     }
+
     const sessionRef = ref(
       database,
       "pairingCodes/" + code + "/sessions/" + auth.currentUser.uid
@@ -319,13 +322,18 @@ window.verifyPairingCode = async function () {
       createdAt: Date.now(),
       status: "requesting"
     });
+
     state.textContent = "Code verified";
-    message.textContent = "Pairing code is valid. Device connection is not active yet.";
-    } catch (error) {
+    message.textContent =
+      "Session saved successfully. Device connection is not active yet.";
+
+  } catch (error) {
     state.textContent = "Session Error";
     message.textContent = "Firebase error: " + error.message;
     console.error("Session error:", error);
   }
+};
+
 console.log("Googlee Remote database ready");
 </script>
 </body>
