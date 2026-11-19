@@ -321,11 +321,11 @@ window.verifyPairingCode = async function () {
     });
     state.textContent = "Code verified";
     message.textContent = "Pairing code is valid. Device connection is not active yet.";
-  } catch (error) {
-    state.textContent = "Error";
-    message.textContent = error.message;
+    } catch (error) {
+    state.textContent = "Session Error";
+    message.textContent = "Firebase error: " + error.message;
+    console.error("Session error:", error);
   }
-};
 console.log("Googlee Remote database ready");
 </script>
 </body>
